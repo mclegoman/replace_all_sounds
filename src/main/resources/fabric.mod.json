@@ -15,8 +15,5 @@
 	"environment": "client",
 	"mixins": [
 		"replace_all_sounds.mixins.json"
-	],
-	"depends": {
-		"minecraft": "~1.21.4"
-	}
+	]
 }
