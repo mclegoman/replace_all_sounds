@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "com.mclegoman.replace_all_sounds.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"client": [
+		"SoundMixin"
+	]
+}

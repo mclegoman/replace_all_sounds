@@ -1,0 +1,22 @@
+{
+	"schemaVersion": 1,
+	"id": "replace_all_sounds",
+	"version": "${version}",
+	"name": "Replace All Sounds",
+	"description": "Replaces all sounds with the low battery sound.",
+	"authors": [
+		"dannytaylor"
+	],
+	"contact": {
+		"sources": "https://github.com/mclegoman/replace_all_sounds"
+	},
+	"license": "LGPL-3.0-or-later",
+	"icon": "assets/replace_all_sounds/icon.png",
+	"environment": "client",
+	"mixins": [
+		"replace_all_sounds.mixins.json"
+	],
+	"depends": {
+		"minecraft": "~1.21.4"
+	}
+}
