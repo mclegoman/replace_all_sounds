@@ -35,13 +35,15 @@ public class ReplaceSoundManager {
 					for (Identifier id : identifiers) {
 						if (eventRegistry.containsKey(id)) {
 							List<Identifier> events = eventRegistry.get(id);
-							Identifier soundEvent = events.size() > 1 ? events.get(random.nextInt(events.size())) : events.getFirst();
-							if (soundEvent.equals(Identifier.of("random"))) {
-								List<Identifier> sounds = new ArrayList<>(MinecraftClient.getInstance().getSoundManager().sounds.keySet().stream().toList());
-								sounds.removeIf(sound -> sound.getPath().contains("music") || sound.getPath().contains("ambient"));
-								soundEvent = sounds.size() > 1 ? sounds.get(random.nextInt(sounds.size())) : sounds.getFirst();
+							if (!events.isEmpty()) {
+								Identifier soundEvent = events.size() > 1 ? events.get(random.nextInt(events.size())) : events.getFirst();
+								if (soundEvent.equals(Identifier.of("random"))) {
+									List<Identifier> sounds = new ArrayList<>(MinecraftClient.getInstance().getSoundManager().sounds.keySet().stream().toList());
+									sounds.removeIf(sound -> sound.getPath().contains("music") || sound.getPath().contains("ambient"));
+									if (!sounds.isEmpty()) soundEvent = sounds.size() > 1 ? sounds.get(random.nextInt(sounds.size())) : sounds.getFirst();
+								}
+								return soundEvent;
 							}
-							return soundEvent;
 						}
 					}
 				}
