@@ -1,0 +1,6 @@
+{
+	"type": "sound_event",
+	"input": "all:all",
+	"output": "random",
+	"enabled": true
+}
