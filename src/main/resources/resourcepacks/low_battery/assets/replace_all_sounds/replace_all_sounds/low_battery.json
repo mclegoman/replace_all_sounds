@@ -1,4 +1,5 @@
 {
+	"type": "sound",
 	"input": "all:all",
 	"output": "replace_all_sounds:low_battery",
 	"enabled": true
