@@ -17,6 +17,6 @@ public abstract class SoundMixin {
 	@Mutable @Shadow @Final private Identifier id;
 	@Inject(at = @At(value = "RETURN"), method = "<init>")
 	private void replace_all_sounds$replaceSound(Identifier id, FloatSupplier volume, FloatSupplier pitch, int weight, Sound.RegistrationType registrationType, boolean stream, boolean preload, int attenuation, CallbackInfo ci) {
-		this.id = ReplaceSoundManager.getSound(this.id);
+		this.id = ReplaceSoundManager.getSound(ReplaceSoundManager.Type.sound, this.id);
 	}
 }

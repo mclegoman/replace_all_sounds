@@ -10,6 +10,7 @@
 	"client": [
 		"MinecraftClientMixin",
 		"SoundManagerMixin",
-		"SoundMixin"
+		"SoundMixin",
+		"AbstractSoundInstanceMixin"
 	]
 }
