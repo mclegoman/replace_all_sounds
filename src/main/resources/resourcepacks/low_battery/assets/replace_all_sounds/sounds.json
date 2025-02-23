@@ -1,0 +1,7 @@
+{
+	"low_battery": {
+		"sounds": [
+			"replace_all_sounds:low_battery"
+		]
+	}
+}

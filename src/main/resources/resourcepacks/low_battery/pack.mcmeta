@@ -1,0 +1,12 @@
+{
+    "pack": {
+        "pack_format": 46,
+        "supported_formats": {
+            "min_inclusive": 1,
+            "max_inclusive": 2147483647
+        },
+        "description": {
+            "translate": "replace_all_sounds.resource_pack.low_battery.description"
+        }
+    }
+}

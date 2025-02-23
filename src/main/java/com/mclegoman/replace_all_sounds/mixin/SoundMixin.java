@@ -1,5 +1,6 @@
 package com.mclegoman.replace_all_sounds.mixin;
 
+import com.mclegoman.replace_all_sounds.ReplaceSoundManager;
 import net.minecraft.client.sound.Sound;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.floatprovider.FloatSupplier;
@@ -16,6 +17,6 @@ public abstract class SoundMixin {
 	@Mutable @Shadow @Final private Identifier id;
 	@Inject(at = @At(value = "RETURN"), method = "<init>")
 	private void replace_all_sounds$replaceSound(Identifier id, FloatSupplier volume, FloatSupplier pitch, int weight, Sound.RegistrationType registrationType, boolean stream, boolean preload, int attenuation, CallbackInfo ci) {
-		this.id = Identifier.of("replace_all_sounds", "replace_all_sounds");
+		this.id = ReplaceSoundManager.getSound(this.id);
 	}
 }
