@@ -18,6 +18,6 @@ public abstract class AbstractSoundInstanceMixin {
 	@Mutable @Shadow @Final protected Identifier id;
 	@Inject(at = @At(value = "RETURN"), method = "<init>(Lnet/minecraft/util/Identifier;Lnet/minecraft/sound/SoundCategory;Lnet/minecraft/util/math/random/Random;)V")
 	private void replace_all_sounds$replaceSound(Identifier soundId, SoundCategory category, Random random, CallbackInfo ci) {
-		if (category != SoundCategory.MUSIC) this.id = ReplaceSoundManager.getSound(ReplaceSoundManager.Type.event, soundId);
+		if (!this.id.getPath().contains("music") && !this.id.getPath().contains("ambient")) this.id = ReplaceSoundManager.getSound(ReplaceSoundManager.Type.event, soundId);
 	}
 }
