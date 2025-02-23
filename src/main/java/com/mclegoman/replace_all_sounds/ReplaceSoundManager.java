@@ -13,23 +13,31 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class ReplaceSoundManager {
+	private static final Random random = new Random();
 	private static final Map<Identifier, Identifier> soundRegistry = new HashMap<>();
 	private static final Map<Identifier, List<Identifier>> eventRegistry = new HashMap<>();
 	public static Identifier getSound(Type type, Identifier identifier) {
+		Identifier[] identifiers = {
+				identifier,
+				Identifier.of(identifier.getNamespace(), "all"),
+				Identifier.of("all", "all")
+		};
 		switch (type) {
 			case sound -> {
 				if (!soundRegistry.isEmpty()) {
-					if (soundRegistry.containsKey(identifier)) return soundRegistry.get(identifier);
-					else if (soundRegistry.containsKey(Identifier.of(identifier.getNamespace(), "all"))) return soundRegistry.get(Identifier.of(identifier.getNamespace(), "all"));
-					else if (soundRegistry.containsKey(Identifier.of("all", "all"))) return soundRegistry.get(Identifier.of("all", "all"));
+					for (Identifier id : identifiers) {
+						if (soundRegistry.containsKey(id)) return soundRegistry.get(id);
+					}
 				}
 			}
 			case event -> {
 				if (!eventRegistry.isEmpty()) {
-					Random random = new Random();
-					if (eventRegistry.containsKey(identifier)) return eventRegistry.get(identifier).get(random.nextInt(0, eventRegistry.size()));
-					else if (eventRegistry.containsKey(Identifier.of(identifier.getNamespace(), "all"))) return eventRegistry.get(Identifier.of(identifier.getNamespace(), "all")).get(random.nextInt(0, eventRegistry.size()));
-					else if (eventRegistry.containsKey(Identifier.of("all", "all"))) return eventRegistry.get(Identifier.of("all", "all")).get(random.nextInt(0, eventRegistry.size()));
+					for (Identifier id : identifiers) {
+						if (eventRegistry.containsKey(id)) {
+							List<Identifier> events = eventRegistry.get(id);
+							return events.size() > 1 ? events.get(random.nextInt(events.size())) : events.getFirst();
+						}
+					}
 				}
 			}
 		}
