@@ -1,6 +1,6 @@
 # Replace All Sounds
 Replaces sounds with other sounds!  
-*By default, all sounds are replaced with a low battery sound!*
+*By default, all sounds are replaced with a random sound!*
 
 ## Dependencies
 - [Fabric Loader](https://fabricmc.net) or [Quilt Loader](https://quiltmc.org)
